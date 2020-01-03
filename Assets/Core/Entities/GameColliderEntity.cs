@@ -2,14 +2,14 @@
 
 public class GameColliderEntity : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        GameManagerSingleton.Instance.CollisionManager.Add(this, collider);
+        GameManagerSingleton.Instance.CollisionManager.Add(this, col);
     }
 
-    private void OnTriggerExit(Collider collider)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        GameManagerSingleton.Instance.CollisionManager.Remove(this, collider);
+        GameManagerSingleton.Instance.CollisionManager.Remove(this, col);
     }
 
     private void OnDestroy()

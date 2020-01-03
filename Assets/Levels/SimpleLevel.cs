@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 public class SimpleLevel : GameLevel
 {
     public override GameSystem[] Systems { get; } = {
-        // new System()
+        new GravitySystem(),
+        new PlayerMovementSystem(),
+        new PhysicSystem()
     };
 
     void Start()

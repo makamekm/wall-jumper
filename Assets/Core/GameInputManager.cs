@@ -45,11 +45,11 @@ public class GameInputManager
                 );
             }
 
-            if (EventSystem.current.IsPointerOverGameObject()
-                && EventSystem.current.currentSelectedGameObject != null)
-            {
-                CursorUIEntities.Add(EventSystem.current.currentSelectedGameObject, EventSystem.current);
-            }
+            //if (EventSystem.current.IsPointerOverGameObject()
+            //    && EventSystem.current.currentSelectedGameObject != null)
+            //{
+            //    CursorUIEntities.Add(EventSystem.current.currentSelectedGameObject, EventSystem.current);
+            //}
         }
     }
 }
