@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldMoveSystem : GameSystem
 {
-    float CameraSpeed = 1f;
+    float CameraSpeed = 2f;
     float MinPlayerDelta = 10f;
 
     float PrevPlayerY = 10f;
@@ -22,14 +22,21 @@ public class WorldMoveSystem : GameSystem
             }
         });
 
-        if (MinPlayerDelta > Mathf.Abs(highestPlayer))
+        if (
+            MinPlayerDelta > Mathf.Abs(highestPlayer)
+            ||
+            Level.State.Height - Level.State.CurrentHeight > Level.State.MinimumOffsetHeight
+        )
         {
-            PrevPlayerY = highestPlayer;
             Level.State.CurrentHeight += highestPlayer - PrevPlayerY;
+            PrevPlayerY = highestPlayer;
+            if (Level.State.Height < Level.State.CurrentHeight)
+            {
+                Level.State.Height = Level.State.CurrentHeight;
+            }
             return;
         }
 
-        PrevPlayerY = 0;
         Level.State.CurrentHeight += highestPlayer;
 
         if (Level.State.Height < Level.State.CurrentHeight)
@@ -37,10 +44,7 @@ public class WorldMoveSystem : GameSystem
             Level.State.Height = Level.State.CurrentHeight;
         }
 
-        if (Level.State.CurrentHeight - Level.State.Height > Level.State.MinimumOffsetHeight)
-        {
-            return;
-        }
+        PrevPlayerY = 0;
 
         float deltaHeight = 0;
         deltaHeight = Mathf.Lerp(deltaHeight, highestPlayer, CameraSpeed * Time.deltaTime);
