@@ -21,7 +21,7 @@ public class GameLevel : MonoBehaviour
     }
     public virtual GameSystem[] Systems { get; }
     public GameManagerState GameManager { get; protected set; }
-    protected IEnumerable<System.IDisposable> Subscriptions { get; set; } = null;
+    protected IEnumerable<IDisposable> Subscriptions { get; set; } = null;
     public GameLevelState State { get; } = new GameLevelState();
 
     public GameObject Add(GameObject obj, Vector3 pos)

@@ -9,7 +9,8 @@ public class SimpleLevel : GameLevel
         new GravitySystem(),
         new PlayerMovementSystem(),
         new PlayerWallSystem(),
-        new PhysicSystem()
+        new PhysicSystem(),
+        new WorldMoveSystem()
     };
 
     void Start()

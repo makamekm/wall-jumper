@@ -15,6 +15,13 @@ public class PlayerWallSystem : GameSystem
                     var wall = colliders[0].gameObject;
                     playerEntity.RightWall = wall;
                     physicEntity.Velocity = new Vector3(0, 50f);
+                    physicEntity.transform.position = new Vector3(
+                        wall.transform.position.x - playerEntity.Offset,
+                        physicEntity.transform.position.y,
+                        physicEntity.transform.position.z
+                    );
+                    //LeanTween.moveX(playerEntity.gameObject, wall.transform.position.x - playerEntity.Offset, 0.25f)
+                    //    .setEase(LeanTweenType.easeOutBounce);
                 }
             }
             else
@@ -24,7 +31,6 @@ public class PlayerWallSystem : GameSystem
         });
 
         GameManager.EntityManager.ForEach<PlayerEntity, PhysicEntity>((playerEntity, physicEntity) => {
-
             var colliders = GameManager.CollisionManager.Get(playerEntity.LeftCollider, "LeftWall");
             if (colliders != null && colliders.Count > 0)
             {
@@ -33,6 +39,13 @@ public class PlayerWallSystem : GameSystem
                     var wall = colliders[0].gameObject;
                     playerEntity.LeftWall = wall;
                     physicEntity.Velocity = new Vector3(0, 50f);
+                    physicEntity.transform.position = new Vector3(
+                        wall.transform.position.x + playerEntity.Offset,
+                        physicEntity.transform.position.y,
+                        physicEntity.transform.position.z
+                    );
+                    //LeanTween.moveX(playerEntity.gameObject, wall.transform.position.x + playerEntity.Offset, 0.25f)
+                    //    .setEase(LeanTweenType.easeOutBounce);
                 }
             }
             else
