@@ -8,6 +8,7 @@ public class SimpleLevel : GameLevel
     public override GameSystem[] Systems { get; } = {
         new GravitySystem(),
         new PlayerMovementSystem(),
+        new PlayerWallSystem(),
         new PhysicSystem()
     };
 
