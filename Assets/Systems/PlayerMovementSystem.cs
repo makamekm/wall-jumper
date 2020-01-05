@@ -14,11 +14,11 @@ public class PlayerMovementSystem : GameSystem
         GameManager.EntityManager.ForEach<PlayerEntity, PhysicEntity>((playerEntity, physicEntity) => {
             if (playerEntity.RightWall != null)
             {
-                physicEntity.Velocity = new Vector3(-40f, 50f);
+                physicEntity.Velocity = new Vector3(-80f, 80f);
             }
             else if (playerEntity.LeftWall != null)
             {
-                physicEntity.Velocity = new Vector3(40f, 50f);
+                physicEntity.Velocity = new Vector3(80f, 80f);
             }
         });
     }
