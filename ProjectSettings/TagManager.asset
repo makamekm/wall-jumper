@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LeftWall
   - RightWall
+  - Object
   layers:
   - Default
   - TransparentFX

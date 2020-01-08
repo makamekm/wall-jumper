@@ -2,5 +2,5 @@
 
 public class HealthEntity : MonoBehaviour
 {
-    public int Health = 100;
+    public int Health = 4;
 }
